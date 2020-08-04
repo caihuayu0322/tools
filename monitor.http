@@ -1,0 +1,16 @@
+###
+
+
+
+###------------------------------ scrubbing monitor group ----------------------------
+
+
+
+####
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/monitor/nta/traffic/?chart=area&unit=bps&sortby=avg&start_time=2020-07-31T08%3A31%3A25.869Z&end_time=2020-07-31T09%3A31%3A25.869Z
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+###

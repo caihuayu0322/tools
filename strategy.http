@@ -1,0 +1,14 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+###
+PUT http://{{host}}:{{port}}/api/v1/scrubbingzones/undefined/defaultddospolicy/98/
+Content-Type: application/json
+Authorization: {{authorization}}
+
+{"id":98,"name":"test_strategy_pg","description":null,"date_created":"2020-06-16T02:27:34.164414Z","date_changed":"2020-06-16T02:27:34.164414Z","threshold":null,"state":"OK","template":null,"revision":{"id":81,"date_created":"2020-06-16T02:27:34.164414Z","state":"ACTIVE","creator":"admin","policy":{"DDOS":{"SYN":{"level":"Default","conf_1":2001,"conf_2":"2000","direction":"1","algorith":"1"},"ACK":{"level":"Default","conf_1":"8000","direction":"1"},"UDP":{"level":"Default","conf_1":"1000","direction":"64"},"ICMP":{"level":"Default","conf_1":"4000","direction":"1"},"CC":{"conf_1":"1000","direction":"1","algorith":"1"},"POST":{"conf_1":"1000","direction":"1","algorith":"2"},"HTTP_PORT":{"port":"80"}},"FLAGSET":{"TCP":{"syn_band_limit":"0","tcp_reset_limit":"100000","band_limit_value":"0","syn_resend_check":"0","tcp_target":"0","ack_algorithm":"0","ack_learn_switch":"0","ack_retrans_min_jiffies":"8","ack_retrans_max_jiffies":"24","tcp_fragment":"1"},"TRUSTIP":{"enable":"0","policy":"0","syn_pps":"100","get_pps":"50","ack_pps":"100","other_pps":"100","empty_conn":"0"}},"DNS":{"query_pt":"0","query_level":"0","algorith":"0","reverse_detection":"0"},"UDP":{"udp_fragment":"1","src_limit_level":"0","udp_min_len":"0","udp_len":"65535","sip_port_tc_enable":"0","sip_port_tc_max":"65535","sip_tc_enable":"0","sip_tc_max":"3000000","dip_port_tc_enable":"0","dip_port_tc_max":"65535","disp_port_tc_enable":"0","disp_port_tc_max":"65535","dip_tc_enable":"0","dip_tc_max":"3000000"},"ICMP":{"icmp_srcip_limit_enable":"0","icmp_srcip_limit":"3000000","icmp_dstip_limit_enable":"0","icmp_dstip_limit":"3000000","icmp_fragment":"1"}},"pg_name":"test_strategy_pg","pg_id":98},"scrubbing_monitor_group":null,"scrubbing_monitor_point":null,"scrubbing_zone":{"id":44,"name":"test_strategy","description":null,"scrubbing_environment":17,"scheme":1},"scrubbing_node":null}
+###
