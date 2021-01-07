@@ -1,0 +1,12 @@
+###
+GET http://10.66.242.125:31005/api/v1/scrubbingmonitorgroups/1/fusing/
+Content-Type: application/json
+Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTk1NDc0NzA4LCJlbWFpbCI6ImJ4aEBzeXN0ZW0ubWFpbCIsImFjY291bnQiOiJhZG1pbiJ9.v7bYmshglLL9TanZwCKkIdd3YFVzMQ9Q84CksjyOBAw
+
+###
+
+GET https://10.66.242.128/api/v1/scrubbingmonitorgroups/traffictopn/
+Content-Type: application/json
+Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTk0OTU1Nzc4LCJlbWFpbCI6InN1cHBvcnRAbnNmMGN1cy5jb20iLCJhY2NvdW50IjoiYWRtaW4ifQ.hFlmYBKncbp-wAJd-54KO3Nr0Q7MfqK1ctwtB2IyGe8
+
+###

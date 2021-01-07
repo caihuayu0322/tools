@@ -14,3 +14,15 @@ Authorization: {{authorization}}
 accept-language: en
 
 ###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/monitor/ads/eventduration/?start_time=2020-07-31T08%3A31%3A25.869Z&end_time=2020-07-31T09%3A31%3A25.869Z
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/31/monitor/ads/eventduration/
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+###

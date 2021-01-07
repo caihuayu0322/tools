@@ -1,0 +1,19 @@
+###
+
+
+# ----------------------------report--------------------------
+
+
+###?start_time=2020-11-30T16%3A00%3A00.000Z&end_time=2020-12-31T15%3A59%3A59.999Z
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/31/points/3/tempreports/32/export/?start_time=2020-11-30T16%3A00%3A00.000Z&end_time=2020-12-31T15%3A59%3A59.999Z
+Content-Type: application/json
+Authorization: {{authorization}}
+
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/2/tempreports/32/export/?start_time=2020-11-30T16%3A00%3A00.000Z&end_time=2020-12-31T15%3A59%3A59.999Z
+Content-Type: application/json
+Authorization: {{authorization}}
+
+
+###
