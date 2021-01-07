@@ -17,6 +17,7 @@ SMG = 1
 TABLES = set()
 
 BATCH_SIZE = 5000
+ATTACK_TYPE = ["SYN Flood", "ACK Flood", "UDP Flood", "ICMP Flood", "HTTP Flood", "IGMP Flood", "DNS Amplification"]
 
 
 class DBCopy(DB):
@@ -56,6 +57,8 @@ def create_sub_table(table, start, db, interval='day'):
         key = start.format('YYYY-MM-DD')
     elif 'week' == interval:
         key = start.span('week')[0].format('YYYY-MM-DD')
+    elif 'month' == interval:
+        key = start.format('YYYY-MM-01')
     else:
         key = start.format('YYYY-MM-DD')
 
@@ -64,7 +67,7 @@ def create_sub_table(table, start, db, interval='day'):
         params = (table, interval, stat_time)
         db.execute(sql, params)
         TABLES.add(key)
-        print('Create sub table %s: <%s>' % (table, key))
+        print('<%s> Create sub table: %s.' % (table, key))
 
 
 def gen_ads_dst_ip_traffic_hour(start, end, smg):
@@ -143,20 +146,54 @@ def gen_ads_traffic_hour(start, end, smg):
     copy_to_db(columns, start, end, 't_ads_customerline_traffic_hour', f)
 
 
+def gen_ads_event(start, end, smg):
+    def f(now):
+        tmp = []
+        num = 0
+        for ii in gen_dst_ips(start=13, end=129):
+            jj = ATTACK_TYPE[num % 7]
+            num += 1
+            tmp.append(['202.10.16.11', smg, 1,
+                        ii, jj, now, arrow.get(now, format, tzinfo=tz.tzlocal()).shift(minutes=1).format('YYYY-MM-DD HH:mm:ss'),
+                        276112380, 269640, 276112380, 26964,
+                        9203746, 8988, 9203746, 8988,
+                        '中国', '河南', '信阳', '223'])
+        return tmp
+
+    columns = ['device_ip', 'customer_line_id', 'customer_scope_id',
+               'dstip', 'attack_type', 'start_time', 'end_time',
+               'total_in_bits', 'total_in_packets', 'total_drop_bits', 'total_drop_packets',
+               'max_in_bps', 'max_in_pps', 'max_drop_bps', 'max_drop_pps',
+               'country', 'provence', 'city', 'attack_port']
+
+    copy_to_db(columns, start, end, 't_ads_event', f)
+
+
 def copy_to_db(columns, start, end, table, f):
     """
-    Parameter:
-        f: function to generate row to be copied to db.
+    Args:
+        f: function to generate rows to be copied to table.
     """
+    print('------------------------->')
+    print('<%s> Prepare to generate data: %s - %s.' % (
+        table, arrow.get(start).to('local').format('YYYY-MM-DD HH:mm:ss'), arrow.get(end).to('local').format('YYYY-MM-DD HH:mm:ss')))
+
+    init = time.time()
+
+    # duration: 创建子表使用, 指单个子表保存数据的时间
+    # interval: 生成数据的间隔, 指数据之间stat_time间隔时间
     if table.endswith('5mi'):
         duration = 'day'
         interval = 300
     elif table.endswith('hour'):
         duration = 'week'
         interval = 3600
+    elif table == 't_ads_event':
+        duration = 'month'
+        interval = 3600
     else:
-        duration = 'hour'
-        interval = 30
+        duration = 'week'
+        interval = 3600
 
     start = start - start % interval + interval if start % interval else start
 
@@ -172,7 +209,7 @@ def copy_to_db(columns, start, end, table, f):
             res.extend(tmp)
             if BATCH_SIZE <= len(res):
                 db.copy_from(res, table, columns=columns)
-                print('Copy to sub table {}, stat_time: <{}>, num: {}'.format(table, stat_time, len(res)))
+                print('<{}> Copy to sub table, last record stat_time: <{}>, num: {}'.format(table, stat_time, len(res)))
                 res.clear()
 
         start += interval
@@ -180,7 +217,10 @@ def copy_to_db(columns, start, end, table, f):
     if res:
         stat_time = arrow.get(start - interval).to('local').format('YYYY-MM-DD HH:mm:ss')
         db.copy_from(res, table, columns=columns)
-        print('Copy to sub table {}, stat_time: <{}>, num: {}'.format(table, stat_time, len(res)))
+        print('<{}> Copy to sub table, last record stat_time: {}, num: {}'.format(table, stat_time, len(res)))
+
+    print('<%s> Data generation successfully, total time: %ss.' % (table, str(int(time.time() - init))))
+    print('<-------------------------')
 
 
 if __name__ == '__main__':
@@ -204,7 +244,6 @@ if __name__ == '__main__':
 
     p = []
     dst_tables = [gen_ads_dst_ip_traffic_5mi, gen_ads_dst_ip_traffic_hour, gen_ads_traffic_hour, gen_ads_traffic_5mi]
-    # dst_tables = [gen_ads_traffic_5mi, gen_ads_traffic_hour]
     for i in dst_tables:
         j = multiprocessing.Process(target=i, args=(options.start_time, options.end_time, options.smg))
         j.start()
