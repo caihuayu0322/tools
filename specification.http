@@ -1,0 +1,101 @@
+###
+
+
+# ----------------------------sale specification--------------------------
+
+
+###获取当前售卖规格所有可用权限
+GET http://{{host}}:{{port}}/api/v1/salesspecifications/permissions/
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+###获取某个售卖规格权限
+GET http://{{host}}:{{port}}/api/v1/salesspecifications/3/permissions/
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+###获取所有售卖规格
+GET http://{{host}}:{{port}}/api/v1/salesspecifications/
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+###获取所有售卖规格
+PUT http://{{host}}:{{port}}/api/v1/salesspecifications/9/
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+{
+    "id": 14,
+    "details": [
+      {
+        "role_id": [1,2,3],
+        "enable": 1,
+        "permission_code": "block_service"
+      },
+      {
+        "role_id": [],
+        "enable": 1,
+        "permission_code": "divert_service"
+      },
+      {
+        "role_id": [],
+        "enable": 1,
+        "permission_code": "mitigation_policy_service"
+      },
+      {
+        "role_id": [],
+        "enable": 1,
+        "permission_code": "basic_monitor_service"
+      },
+      {
+        "role_id": [],
+        "enable": 1,
+        "permission_code": "dashboard_service"
+      }
+    ],
+    "name": "Customized",
+    "is_default": false,
+    "description": null
+  }
+###增加售卖规格
+POST http://{{host}}:{{port}}/api/v1/salesspecifications/
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+{
+    "details": [
+      {
+        "role_id": [1,2,3,4],
+        "enable": 1,
+        "permission_code": "block_service"
+      },
+      {
+        "role_id": [],
+        "enable": 1,
+        "permission_code": "divert_service"
+      },
+      {
+        "role_id": [],
+        "enable": 1,
+        "permission_code": "mitigation_policy_service"
+      },
+      {
+        "role_id": [],
+        "enable": 1,
+        "permission_code": "basic_monitor_service"
+      },
+      {
+        "role_id": [],
+        "enable": 1,
+        "permission_code": "dashboard_service"
+      }
+    ],
+    "name": "Customized test5",
+    "is_default": false,
+    "description": null
+  }

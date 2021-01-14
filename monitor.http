@@ -7,7 +7,6 @@
 
 
 ####
-
 GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/monitor/nta/traffic/?chart=area&unit=bps&sortby=avg&start_time=2020-07-31T08%3A31%3A25.869Z&end_time=2020-07-31T09%3A31%3A25.869Z
 Accept: application/json
 Authorization: {{authorization}}
@@ -24,5 +23,121 @@ GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/31/monitor/ads/eventd
 Accept: application/json
 Authorization: {{authorization}}
 accept-language: en
+
+###
+
+
+#-------------------sz traffic----------------------
+
+
+### Scrubbing Zones
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/ads/traffic/?start_time=2020-03-23T08:57:04.428Z&end_time=2020-03-23T08:57:04.428Z
+Accept: application/json
+Authorization: {{authorization}}
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/ads/events/?limit=10&offset=0&start_time=2020-02-29T16:00:00.000Z&end_time=2020-03-23T08:57:04.428Z
+Accept: application/json
+Authorization: {{authorization}}
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/ads/eventtypesdistr/?limit=10&offset=0
+Accept: application/json
+Authorization: {{authorization}}
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/ads/topn/?sortby=In
+Accept: application/json
+Authorization: {{authorization}}
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/nta/traffic/?start_time=2020-02-29T16:00:00.000Z&end_time=2020-03-23T08:57:04.428Z
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/nta/topn/?sortby=Inbound&topn=5&start_time=2020-02-29T16:00:00.000Z&end_time=2020-03-23T08:57:04.428Z
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/nta/abnormaltopn/?start_time=2020-02-29T16:00:00.000Z&end_time=2020-03-23T08:57:04.428Z
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/nta/events/?limit=10&offset=0
+Accept: application/json
+Authorization: {{authorization}}
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/nta/eventtypesdistr/?limit=5&offset=0
+Accept: application/json
+Authorization: {{authorization}}
+
+###
+
+#-------------------sn traffic----------------------
+
+### Scrubbing Nodes
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/ads/traffic/?start_time=2020-02-29T16:00:00.000Z&end_time=2020-03-23T08:57:04.428Z&dstip=1.1.1.1
+Accept: application/json
+Authorization: {{authorization}}
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/ads/topn/?sortby=In
+Accept: application/json
+Authorization: {{authorization}}
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/ads/events/?limit=3&offset=0
+Accept: application/json
+Authorization: {{authorization}}
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/ads/eventtypesdistr/
+Accept: application/json
+Authorization: {{authorization}}
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/nta/traffic/?start_time=2020-02-23T08:00:00.000Z&end_time=2020-03-23T08:57:04.428Z&dstip=80.94.22.100
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/nta/topn/?sortby=Inbound&topn=5&start_time=2020-02-29T16:00:00.000Z&end_time=2020-03-23T08:57:04.428Z&topn=5
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/nta/events/?limit=3&offset=0
+Accept: application/json
+Authorization: {{authorization}}
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/nta/eventtypesdistr/?limit=5&offset=0
+Accept: application/json
+Authorization: {{authorization}}
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/nta/abnormaltopn/?start_time=2020-02-29T16:00:00.000Z&end_time=2020-03-23T08:57:04.428Z
+Authorization: {{authorization}}
+Accept: application/json
 
 ###
