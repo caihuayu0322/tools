@@ -40,7 +40,10 @@ class DBCopy(DB):
             return False
         finally:
             if cur:
-                cur.close()
+                try:
+                    cur.close()
+                except:
+                    pass
 
 
 def gen_dst_ips(start=17, end=129):

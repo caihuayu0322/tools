@@ -1,4 +1,9 @@
 ###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/monitor/ads/traffic/?start_time=2020-03-25T08:57:04.428Z&end_time=2021-03-23T08:57:04.428Z
+Accept: application/json
+Authorization: {{authorization}}
+
+###
 
 
 
@@ -19,7 +24,7 @@ Authorization: {{authorization}}
 accept-language: en
 
 ###
-GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/31/monitor/ads/eventduration/
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/10/monitor/ads/eventdistr/
 Accept: application/json
 Authorization: {{authorization}}
 accept-language: en

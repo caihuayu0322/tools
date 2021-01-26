@@ -1,0 +1,13 @@
+###
+
+
+# ----------------------------current--------------------------
+
+
+###
+GET http://{{host}}:{{port}}/api/v1/currentuser
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+###

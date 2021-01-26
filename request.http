@@ -533,7 +533,7 @@ Authorization: {{authorization}}
 
 
 ###
-GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/20/fusing/
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/17/fusing/
 Content-Type: application/json
 Authorization: {{authorization}}
 
@@ -551,7 +551,7 @@ Authorization: {{authorization}}
 ###
 
 
-# ----------------------------permission--------------------------
+# ----------------------------api--------------------------
 
 
 ###
@@ -560,4 +560,17 @@ Content-Type: application/json
 Authorization: {{authorization}}
 
 
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/10/eventautodispatchpolicy/
+Content-Type: application/json
+Authorization: {{authorization}}
+
+
+###
+PUT http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/10/eventautodispatchpolicy/10/
+Content-Type: application/json
+Authorization: {{authorization}}
+
+{"is_default":true,"policy_type":"nta_bgpflowspec","min_threshold_bps":1,"keep_time_seconds":"101","priority_level":1,"dstip":"0.0.0.0","threshold_cond":"2","scrubbing_monitor_group":10,"max_threshold_bps":null,"advanced_config_enable": true, "advanced_config": {"action_type": "accept", "action_value": null}}
 ###
