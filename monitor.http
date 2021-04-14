@@ -7,7 +7,7 @@ Authorization: {{authorization}}
 
 
 
-###------------------------------ scrubbing monitor group ----------------------------
+###------------------------------ smg ----------------------------
 
 
 
@@ -28,6 +28,55 @@ GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/10/monitor/ads/eventd
 Accept: application/json
 Authorization: {{authorization}}
 accept-language: en
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/2/monitor/nta/eventsrcporttopn/?device_ip=10.66.243.230&event_id=7176885487358737269&start_time=2021-01-01T07%3A02%3A27.000Z&end_time=2021-01-31T10%3A50%3A52.768Z
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/40/monitor/genieatm/traffic/?device_ip=10.66.243.230&event_id=7176885487358737269&start_time=2021-02-01T07%3A02%3A27.000Z&end_time=2021-02-28T10%3A50%3A52.768Z
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/1/monitor/atic_mitigation/traffic/?start_time=2021-03-02T08:00:00.000Z&end_time=2021-03-02T09:57:04.428Z&dstip=1.1.1.1
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/1/monitor/atic_mitigation/topn/?sortby=In&topn=5&start_time=2021-03-02T08:00:00.000Z&end_time=2021-03-02T09:57:04.428Z&dstip=1.1.1.1
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/1/monitor/atic_mitigation/events/?orderby=time&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-15T09:57:04.428Z&dstip=1.1.1.1&limit=5&offset=0
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/1/monitor/atic_mitigation/eventtypesdistr/?orderby=bps&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-15T09:57:04.428Z&dstip=1.1.1.1&limit=5&offset=0
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+
+
+
+#------------------- SMP ----------------------
+
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/1/points/1/monitor/atic_mitigation/topn/?sortby=In&topn=5&start_time=2021-03-02T08:00:00.000Z&end_time=2021-03-02T09:57:04.428Z&dstip=1.1.1.1
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/1/points/1/monitor/atic_mitigation/traffic/?start_time=2021-03-02T08:00:00.000Z&end_time=2021-03-02T09:57:04.428Z&dstip=1.1.1.2
+Authorization: {{authorization}}
+Accept: application/json
 
 ###
 
@@ -88,8 +137,33 @@ Accept: application/json
 Authorization: {{authorization}}
 
 ###
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/atic_mitigation/traffic/?start_time=2021-03-02T08:00:00.000Z&end_time=2021-03-02T09:57:04.428Z&dstip=1.1.1.2
+Authorization: {{authorization}}
+Accept: application/json
 
-#-------------------sn traffic----------------------
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/atic_mitigation/topn/?sortby=In&topn=5&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-12T09:57:04.428Z&dstip=1.1.1.2
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/atic_mitigation/traffic/?start_time=2021-03-02T08:00:00.000Z&end_time=2021-03-02T09:57:04.428Z&dstip=1.1.1.2
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/atic_mitigation/events/?orderby=time&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-15T09:57:04.428Z&dstip=1.1.1.1&limit=5&offset=0
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingzones/1/monitor/atic_mitigation/eventtypesdistr/?orderby=bps&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-15T09:57:04.428Z&dstip=1.1.1.1&limit=5&offset=0
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+
+#-------------------SN traffic----------------------
 
 ### Scrubbing Nodes
 
@@ -142,6 +216,50 @@ Authorization: {{authorization}}
 ###
 
 GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/nta/abnormaltopn/?start_time=2020-02-29T16:00:00.000Z&end_time=2020-03-23T08:57:04.428Z
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/atic_mitigation/topn/?sortby=In&topn=5&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-12T09:57:04.428Z&dstip=1.1.1.2
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/atic_mitigation/traffic/?start_time=2021-03-02T08:00:00.000Z&end_time=2021-03-02T09:57:04.428Z&dstip=1.1.1.2
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/atic_mitigation/events/?orderby=time&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-15T09:57:04.428Z&dstip=1.1.1.1&limit=5&offset=0
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingnodes/1/monitor/atic_mitigation/eventtypesdistr/?orderby=bps&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-15T09:57:04.428Z&dstip=1.1.1.1&limit=5&offset=0
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+
+#-------------------SE traffic----------------------
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/monitor/atic_mitigation/topn/?sortby=In&topn=5&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-12T09:57:04.428Z&dstip=1.1.1.2
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/monitor/atic_mitigation/traffic/?start_time=2021-03-02T08:00:00.000Z&end_time=2021-03-02T09:57:04.428Z&dstip=1.1.1.2
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/monitor/atic_mitigation/events/?orderby=time&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-15T09:57:04.428Z&dstip=1.1.1.1&limit=5&offset=0
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/monitor/atic_mitigation/eventtypesdistr/?orderby=bps&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-15T09:57:04.428Z&dstip=1.1.1.1&limit=5&offset=0
 Authorization: {{authorization}}
 Accept: application/json
 

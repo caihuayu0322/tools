@@ -158,6 +158,7 @@ Authorization: {{authorization}}
 accept-language: en
 
 {"id":4,"name":"SMP-106244","domain":[],"iprange":["106.31.24.0/24"],"scrubbing_monitor_group":3}
+
 ###
 POST http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/3/points/
 Accept: application/json
@@ -165,6 +166,7 @@ Authorization: {{authorization}}
 accept-language: en
 
 {"name":"test","iprange":["106.31.24.0/25"],"scrubbing_monitor_group":3}
+
 ###
 
 
@@ -317,6 +319,7 @@ Authorization: {{authorization}}
 Accept: application/json
 
 {"dst_ip": "1.1.1.1", "mode": "r,d,t", "protocol": "tcp", "num": 10, "duration": 11, "detail": [{"device_ip": "1.1.1.7"}, {"device_ip": "10.66.250.185"}], "creator": 1, "creator_ip": "10.66.40.61"}
+
 ###
 GET http://{{host}}:{{port}}/api/v1/devicepcaptask/?status__in=2&limit=3&offset=0
 Authorization: {{authorization}}
@@ -426,6 +429,7 @@ Authorization: {{authorization}}
 Accept: application/json
 
 {"ipranges":["122.21.0.0"],"is_default":false,"device":1,"daemon": "adbostest"}
+
 ###
 ###
 
@@ -454,7 +458,11 @@ POST http://{{host}}:{{port}}/api/v1/adsblockip/start/
 Content-Type: application/json
 Authorization: {{authorization}}
 
-{"dstip":"122.21.1.1","keep_time_seconds":60,"scrubbing_monitor_group":"1"}
+{
+  "dstip": "122.21.1.1",
+  "keep_time_seconds": 60,
+  "scrubbing_monitor_group": "1"
+}
 
 ###
 
@@ -462,7 +470,12 @@ POST http://{{host}}:{{port}}/api/v1/ntablockip/start/
 Content-Type: application/json
 Authorization: {{authorization}}
 
-{"dstip":"1.1.1.1","keep_time_seconds":60,"type":1,"scrubbing_monitor_group":"1"}
+{
+  "dstip": "1.1.1.1",
+  "keep_time_seconds": 60,
+  "type": 1,
+  "scrubbing_monitor_group": "1"
+}
 
 ###
 
@@ -476,7 +489,14 @@ POST http://{{host}}:{{port}}/api/v1/customergroups/
 Content-Type: application/json
 Authorization: {{authorization}}
 
-{"name":"1112311111","users":[4,5]}
+{
+  "name": "1112311111",
+  "users": [
+    4,
+    5
+  ]
+}
+
 ###
 
 ###
@@ -489,7 +509,16 @@ POST http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/1/report/1/download/
 Content-Type: application/json
 Authorization: {{authorization}}
 
-{"name":"test","scrubbing_monitor_group":"1","scrubbing_monitor_group_dashboard":3,"scrubbing_monitor_point_id":1,"format":"html","start_time":"2020-03-31T16:00:00.000Z","end_time":"2020-04-30T15:59:59.999Z"}
+{
+  "name": "test",
+  "scrubbing_monitor_group": "1",
+  "scrubbing_monitor_group_dashboard": 3,
+  "scrubbing_monitor_point_id": 1,
+  "format": "html",
+  "start_time": "2020-03-31T16:00:00.000Z",
+  "end_time": "2020-04-30T15:59:59.999Z"
+}
+
 ###
 
 ###
@@ -525,7 +554,126 @@ PUT http://{{host}}:{{port}}/api/v1/scrubbingzones/undefined/defaultddospolicy/9
 Content-Type: application/json
 Authorization: {{authorization}}
 
-{"id":98,"name":"test_strategy_pg","description":null,"date_created":"2020-06-16T02:27:34.164414Z","date_changed":"2020-06-16T02:27:34.164414Z","threshold":null,"state":"OK","template":null,"revision":{"id":81,"date_created":"2020-06-16T02:27:34.164414Z","state":"ACTIVE","creator":"admin","policy":{"DDOS":{"SYN":{"level":"Default","conf_1":2001,"conf_2":"2000","direction":"1","algorith":"1"},"ACK":{"level":"Default","conf_1":"8000","direction":"1"},"UDP":{"level":"Default","conf_1":"1000","direction":"64"},"ICMP":{"level":"Default","conf_1":"4000","direction":"1"},"CC":{"conf_1":"1000","direction":"1","algorith":"1"},"POST":{"conf_1":"1000","direction":"1","algorith":"2"},"HTTP_PORT":{"port":"80"}},"FLAGSET":{"TCP":{"syn_band_limit":"0","tcp_reset_limit":"100000","band_limit_value":"0","syn_resend_check":"0","tcp_target":"0","ack_algorithm":"0","ack_learn_switch":"0","ack_retrans_min_jiffies":"8","ack_retrans_max_jiffies":"24","tcp_fragment":"1"},"TRUSTIP":{"enable":"0","policy":"0","syn_pps":"100","get_pps":"50","ack_pps":"100","other_pps":"100","empty_conn":"0"}},"DNS":{"query_pt":"0","query_level":"0","algorith":"0","reverse_detection":"0"},"UDP":{"udp_fragment":"1","src_limit_level":"0","udp_min_len":"0","udp_len":"65535","sip_port_tc_enable":"0","sip_port_tc_max":"65535","sip_tc_enable":"0","sip_tc_max":"3000000","dip_port_tc_enable":"0","dip_port_tc_max":"65535","disp_port_tc_enable":"0","disp_port_tc_max":"65535","dip_tc_enable":"0","dip_tc_max":"3000000"},"ICMP":{"icmp_srcip_limit_enable":"0","icmp_srcip_limit":"3000000","icmp_dstip_limit_enable":"0","icmp_dstip_limit":"3000000","icmp_fragment":"1"}},"pg_name":"test_strategy_pg","pg_id":98},"scrubbing_monitor_group":null,"scrubbing_monitor_point":null,"scrubbing_zone":{"id":44,"name":"test_strategy","description":null,"scrubbing_environment":17,"scheme":1},"scrubbing_node":null}
+{
+  "id": 98,
+  "name": "test_strategy_pg",
+  "description": null,
+  "date_created": "2020-06-16T02:27:34.164414Z",
+  "date_changed": "2020-06-16T02:27:34.164414Z",
+  "threshold": null,
+  "state": "OK",
+  "template": null,
+  "revision": {
+    "id": 81,
+    "date_created": "2020-06-16T02:27:34.164414Z",
+    "state": "ACTIVE",
+    "creator": "admin",
+    "policy": {
+      "DDOS": {
+        "SYN": {
+          "level": "Default",
+          "conf_1": 2001,
+          "conf_2": "2000",
+          "direction": "1",
+          "algorith": "1"
+        },
+        "ACK": {
+          "level": "Default",
+          "conf_1": "8000",
+          "direction": "1"
+        },
+        "UDP": {
+          "level": "Default",
+          "conf_1": "1000",
+          "direction": "64"
+        },
+        "ICMP": {
+          "level": "Default",
+          "conf_1": "4000",
+          "direction": "1"
+        },
+        "CC": {
+          "conf_1": "1000",
+          "direction": "1",
+          "algorith": "1"
+        },
+        "POST": {
+          "conf_1": "1000",
+          "direction": "1",
+          "algorith": "2"
+        },
+        "HTTP_PORT": {
+          "port": "80"
+        }
+      },
+      "FLAGSET": {
+        "TCP": {
+          "syn_band_limit": "0",
+          "tcp_reset_limit": "100000",
+          "band_limit_value": "0",
+          "syn_resend_check": "0",
+          "tcp_target": "0",
+          "ack_algorithm": "0",
+          "ack_learn_switch": "0",
+          "ack_retrans_min_jiffies": "8",
+          "ack_retrans_max_jiffies": "24",
+          "tcp_fragment": "1"
+        },
+        "TRUSTIP": {
+          "enable": "0",
+          "policy": "0",
+          "syn_pps": "100",
+          "get_pps": "50",
+          "ack_pps": "100",
+          "other_pps": "100",
+          "empty_conn": "0"
+        }
+      },
+      "DNS": {
+        "query_pt": "0",
+        "query_level": "0",
+        "algorith": "0",
+        "reverse_detection": "0"
+      },
+      "UDP": {
+        "udp_fragment": "1",
+        "src_limit_level": "0",
+        "udp_min_len": "0",
+        "udp_len": "65535",
+        "sip_port_tc_enable": "0",
+        "sip_port_tc_max": "65535",
+        "sip_tc_enable": "0",
+        "sip_tc_max": "3000000",
+        "dip_port_tc_enable": "0",
+        "dip_port_tc_max": "65535",
+        "disp_port_tc_enable": "0",
+        "disp_port_tc_max": "65535",
+        "dip_tc_enable": "0",
+        "dip_tc_max": "3000000"
+      },
+      "ICMP": {
+        "icmp_srcip_limit_enable": "0",
+        "icmp_srcip_limit": "3000000",
+        "icmp_dstip_limit_enable": "0",
+        "icmp_dstip_limit": "3000000",
+        "icmp_fragment": "1"
+      }
+    },
+    "pg_name": "test_strategy_pg",
+    "pg_id": 98
+  },
+  "scrubbing_monitor_group": null,
+  "scrubbing_monitor_point": null,
+  "scrubbing_zone": {
+    "id": 44,
+    "name": "test_strategy",
+    "description": null,
+    "scrubbing_environment": 17,
+    "scheme": 1
+  },
+  "scrubbing_node": null
+}
+
 ###
 
 
@@ -542,7 +690,10 @@ POST http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/20/fusing/
 Content-Type: application/json
 Authorization: {{authorization}}
 
-{"device_type": "ads"}
+{
+  "device_type": "ads"
+}
+
 ###
 DELETE http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/20/fusing/6/
 Content-Type: application/json
@@ -572,5 +723,49 @@ PUT http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/10/eventautodispatchp
 Content-Type: application/json
 Authorization: {{authorization}}
 
-{"is_default":true,"policy_type":"nta_bgpflowspec","min_threshold_bps":1,"keep_time_seconds":"101","priority_level":1,"dstip":"0.0.0.0","threshold_cond":"2","scrubbing_monitor_group":10,"max_threshold_bps":null,"advanced_config_enable": true, "advanced_config": {"action_type": "accept", "action_value": null}}
+{
+  "is_default": true,
+  "policy_type": "nta_bgpflowspec",
+  "min_threshold_bps": 1,
+  "keep_time_seconds": "101",
+  "priority_level": 1,
+  "dstip": "0.0.0.0",
+  "threshold_cond": "2",
+  "scrubbing_monitor_group": 10,
+  "max_threshold_bps": null,
+  "advanced_config_enable": true,
+  "advanced_config": {
+    "action_type": "accept",
+    "action_value": null
+  }
+}
+
+###
+
+
+
+# ----------------------------fusing--------------------------
+
+
+
+###
+POST http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/5/fusing/
+Content-Type: application/json
+Authorization: {{authorization}}
+
+{
+  "scrubbing_monitor_group": 5,
+  "device_type": "ads",
+  "fuse": "START_BLOCK",
+  "fusing_threshold": 11,
+  "fusing_time": 11,
+  "white_list": [
+    "1.1.1.1"
+  ],
+  "force_fusing_threshold": 13,
+  "fusing_num": "1",
+  "is_reverse": false,
+  "enable": true
+}
+
 ###

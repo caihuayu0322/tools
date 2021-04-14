@@ -238,8 +238,8 @@ if __name__ == '__main__':
     options.start_time = arrow.get(options.start_time, format, tzinfo=tz.tzlocal()).timestamp
     options.end_time = arrow.get(options.end_time, format, tzinfo=tz.tzlocal()).timestamp if options.end_time else time.time()
 
-    if not options.smg:
-        options.smg = SMG
+    if not options.sn:
+        options.sn = SMG
 
     if options.start_time >= options.end_time:
         print('Start time cannot great then end time.')
@@ -248,7 +248,7 @@ if __name__ == '__main__':
     p = []
     dst_tables = [gen_ads_dst_ip_traffic_5mi, gen_ads_dst_ip_traffic_hour, gen_ads_traffic_hour, gen_ads_traffic_5mi]
     for i in dst_tables:
-        j = multiprocessing.Process(target=i, args=(options.start_time, options.end_time, options.smg))
+        j = multiprocessing.Process(target=i, args=(options.start_time, options.end_time, options.sn))
         j.start()
         p.append(j)
 
