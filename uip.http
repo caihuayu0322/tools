@@ -1,0 +1,9 @@
+###
+POST http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/1/uip7layerrules/
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+{"protocol":"http","domain":"www.baidu.com","port":"443","load_balance_type":"ip","advanced_defense_ip": "1.1.1.1","scrubbing_monitor_group":"219", "upstream":[{"host":"1.1.1.11","port":8080,"weight":100}]}
+
+###

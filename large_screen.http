@@ -1,0 +1,43 @@
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/largescreen/detection/events/
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/largescreen/detection/events/?sort_by=in
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/largescreen/detection/traffic
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/2/largescreen/detection/device/?id=3
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/2/largescreen/
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/2/largescreen/detection/fantraffic/
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+
+###

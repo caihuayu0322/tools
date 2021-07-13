@@ -11,7 +11,7 @@ Authorization: {{authorization}}
 
 
 ###
-GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/tempreports/4/export/?start_time=2020-11-30T16%3A00%3A00.000Z&end_time=2021-01-31T15%3A59%3A59.999Z
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/1/tempreports/2/export/?start_time=2021-06-30T16%3A00%3A00.000Z&end_time=2021-07-31T15%3A59%3A59.999Z
 Content-Type: application/json
 Authorization: {{authorization}}
 

@@ -57,9 +57,32 @@ Authorization: {{authorization}}
 Accept: application/json
 
 ###
-GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/1/monitor/atic_mitigation/eventtypesdistr/?orderby=bps&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-15T09:57:04.428Z&dstip=1.1.1.1&limit=5&offset=0
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/41/monitor/atic_mitigation/eventtypesdistr/?orderby=bps&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-15T09:57:04.428Z&dstip=1.1.1.1&limit=5&offset=0
 Authorization: {{authorization}}
 Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/traffictopn/?sortby=out
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/41/monitor/ads/eventdistr/?start_time=2021-05-13T03:53:00.000Z&end_time=2021-05-13T07:20:01.000
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/services/?scrubbing_monitor_group=41
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingmonitorgroups/41/monitor/ads/eventsrcip/?event_id=642
+Accept: application/json
+Authorization: {{authorization}}
+accept-language: en
 
 ###
 
@@ -260,6 +283,16 @@ Accept: application/json
 
 ###
 GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/1/monitor/atic_mitigation/eventtypesdistr/?orderby=bps&start_time=2021-03-02T08:00:00.000Z&end_time=2021-04-15T09:57:04.428Z&dstip=1.1.1.1&limit=5&offset=0
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/4/monitor/ads/topn/?chart=bar&unit=bps&sortby=In
+Authorization: {{authorization}}
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/api/v1/scrubbingenvironments/4/monitor/ads/srctopngeodist/?chart=map
 Authorization: {{authorization}}
 Accept: application/json
 
